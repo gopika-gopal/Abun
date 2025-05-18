@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Manrope, Geist_Mono } from "next/font/google";
+import { Geist, Manrope } from "next/font/google";
 import "./globals.css";
-import { Button } from "@/components/ui/button";
-import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
-// Define Geist with multiple weights
 const geist = Geist({
   weight: ["400", "700"],
   variable: "--font-geist",
   subsets: ["latin"],
-  display: "swap", // Ensure fonts load without delay
+  display: "swap", 
 });
 
-// Define Manrope with multiple weights
 const manrope = Manrope({
   weight: ["400", "500"],
   variable: "--font-manrope",
@@ -20,13 +16,6 @@ const manrope = Manrope({
   display: "swap",
 });
 
-// Define Geist_Mono for monospace text
-// const geistMono = Geist_Mono({
-//   weight: "400",
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-//   display: "swap",
-// });
 
 export const metadata: Metadata = {
   title: "Create Next App",

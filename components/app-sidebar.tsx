@@ -4,13 +4,8 @@ import * as React from "react"
 import {
   FileText,
   Boxes,
-  UserCircle,
-  Settings,
-  BookOpen,
   Bot,
   Command,
-  Frame,
-  GalleryVerticalEnd,
   HelpCircle,
   Link2,
   ShoppingCart,
@@ -18,11 +13,6 @@ import {
   RefreshCcw,
   MessageCircle,
   SquarePen,
-  Settings2,
-  Map,
-  PieChart,
-  SquareTerminal,
-  AudioWaveform,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"

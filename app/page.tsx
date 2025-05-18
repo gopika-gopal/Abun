@@ -1,3 +1,5 @@
+'use client'
+
 import { AppSidebar } from "@/components/app-sidebar"
 import { DataTable } from "@/components/data-table"
 import { SiteHeader } from "@/components/site-header"
@@ -28,7 +30,7 @@ export default function Page() {
             <div className="flex flex-col gap-4 py-4 md:gap-2 md:py-2">
               <div className="px-4 lg:px-6">
               </div>
-              <DataTable data={data} />
+              <DataTable data={data}/>
             </div>
           </div>
         </div>
