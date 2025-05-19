@@ -14,7 +14,6 @@ import {
   MessageCircle,
   SquarePen,
   AudioWaveform,
-  GalleryVerticalEnd,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -28,11 +27,6 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
-
-import Image from "next/image";
-import logo from "../app/New-Abun-logo.png";
-// import { NavOtherProducts } from "../components/nav-otherproducts";
-
 
 
 // This is sample data.
