@@ -263,7 +263,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
   {
     accessorKey: "reviewer",
     header: "Publish",
-    cell: ({ row }) => {
+    cell: () => {
       // const isAssigned = row.original.reviewer !== "Assign reviewer"
 
       // if (isAssigned) {
