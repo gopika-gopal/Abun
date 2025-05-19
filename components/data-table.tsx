@@ -37,6 +37,7 @@ import {
 } from "@tanstack/react-table"
 import {
   CheckCircle2Icon,
+  ChevronDown,
   ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -47,6 +48,7 @@ import {
   LoaderIcon,
   MoreVerticalIcon,
   PlusIcon,
+  Send,
   TrendingUpIcon,
 } from "lucide-react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
@@ -180,10 +182,11 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     accessorKey: "type",
     header: "Keyword [Traffic]",
     cell: ({ row }) => (
-      <div className="w-32">
-        <Badge variant="outline" className="px-1.5 text-muted-foreground">
+      <div>
+        {/* <Badge variant="outline" className="px-1.5 text-muted-foreground">
           {row.original.type}
-        </Badge>
+        </Badge> */}
+        <span>{row.original.type}</span>
       </div>
     ),
   },
@@ -191,100 +194,99 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     accessorKey: "status",
     header: "Words",
     cell: ({ row }) => (
-      <Badge
-        variant="outline"
-        className="flex gap-1 px-1.5 text-muted-foreground [&_svg]:size-3"
-      >
-        {row.original.status === "Done" ? (
-          <CheckCircle2Icon className="text-green-500 dark:text-green-400" />
-        ) : (
-          <LoaderIcon />
-        )}
-        {row.original.status}
-      </Badge>
+      // <Badge
+      //   variant="outline"
+      //   className="flex gap-1 px-1.5 text-muted-foreground [&_svg]:size-3"
+      // >
+      //   {row.original.status === "Done" ? (
+      //     <CheckCircle2Icon className="text-green-500 dark:text-green-400" />
+      //   ) : (
+      //     <LoaderIcon />
+      //   )}
+      //   {row.original.status}
+      // </Badge>
+      <span>{row.original.status}</span>
     ),
   },
   {
     accessorKey: "target",
-    header: () => <div className="w-full text-right">Created On</div>,
+    header: () => <div className="w-full text-left">Created On</div>,
     cell: ({ row }) => (
-      <form
-        onSubmit={(e) => {
-          e.preventDefault()
-          toast.promise(new Promise((resolve) => setTimeout(resolve, 1000)), {
-            loading: `Saving ${row.original.header}`,
-            success: "Done",
-            error: "Error",
-          })
-        }}
-      >
-        <Label htmlFor={`${row.original.id}-target`} className="sr-only">
-          Target
-        </Label>
-        <Input
-          className="h-8 w-16 border-transparent bg-transparent text-right shadow-none hover:bg-input/30 focus-visible:border focus-visible:bg-background"
-          defaultValue={row.original.target}
-          id={`${row.original.id}-target`}
-        />
-      </form>
+      // <form
+      //   onSubmit={(e) => {
+      //     e.preventDefault()
+      //     toast.promise(new Promise((resolve) => setTimeout(resolve, 1000)), {
+      //       loading: `Saving ${row.original.header}`,
+      //       success: "Done",
+      //       error: "Error",
+      //     })
+      //   }}
+      // >
+      //   <Label htmlFor={`${row.original.id}-target`} className="sr-only">
+      //     Target
+      //   </Label>
+      //   <Input
+      //     className="h-8 w-16 border-transparent bg-transparent text-right shadow-none hover:bg-input/30 focus-visible:border focus-visible:bg-background"
+      //     defaultValue={row.original.target}
+      //     id={`${row.original.id}-target`}
+      //   />
+      // </form>
+      <span>{row.original.target}</span>
     ),
   },
-  {
-    accessorKey: "limit",
-    header: () => <div className="w-full text-right">Action</div>,
-    cell: ({ row }) => (
-      <form
-        onSubmit={(e) => {
-          e.preventDefault()
-          toast.promise(new Promise((resolve) => setTimeout(resolve, 1000)), {
-            loading: `Saving ${row.original.header}`,
-            success: "Done",
-            error: "Error",
-          })
-        }}
-      >
-        <Label htmlFor={`${row.original.id}-limit`} className="sr-only">
-          Limit
-        </Label>
-        <Input
-          className="h-8 w-16 border-transparent bg-transparent text-right shadow-none hover:bg-input/30 focus-visible:border focus-visible:bg-background"
-          defaultValue={row.original.limit}
-          id={`${row.original.id}-limit`}
-        />
-      </form>
-    ),
-  },
+  // {
+  //   accessorKey: "limit",
+  //   header: () => <div className="w-full text-left">Action</div>,
+  //   cell: ({ row }) => (
+  //     <form
+  //       onSubmit={(e) => {
+  //         e.preventDefault()
+  //         toast.promise(new Promise((resolve) => setTimeout(resolve, 1000)), {
+  //           loading: `Saving ${row.original.header}`,
+  //           success: "Done",
+  //           error: "Error",
+  //         })
+  //       }}
+  //     >
+  //       <Label htmlFor={`${row.original.id}-limit`} className="sr-only">
+  //         Limit
+  //       </Label>
+  //       <Input
+  //         className="h-8 w-16 border-transparent bg-transparent text-right shadow-none hover:bg-input/30 focus-visible:border focus-visible:bg-background"
+  //         defaultValue={row.original.limit}
+  //         id={`${row.original.id}-limit`}
+  //       />
+  //     </form>
+  //     <Button
+  //       variant="outline"
+  //       size="sm"
+  //       className="border-green-500 text-green-500 hover:bg-green-50 px-"
+  //     >
+  //       <span className="hidden lg:inline text-sm">View</span>
+  //     </Button>
+
+  //   ),
+  // },
   {
     accessorKey: "reviewer",
     header: "Publish",
     cell: ({ row }) => {
       const isAssigned = row.original.reviewer !== "Assign reviewer"
 
-      if (isAssigned) {
-        return row.original.reviewer
-      }
+      // if (isAssigned) {
+      //   return row.original.reviewer
+      // }
 
       return (
-        <>
-          <Label htmlFor={`${row.original.id}-reviewer`} className="sr-only">
-            Reviewer
-          </Label>
-          <Select>
-            <SelectTrigger
-              className="h-8 w-40"
-              id={`${row.original.id}-reviewer`}
-            >
-              <SelectValue placeholder="Assign reviewer" />
-            </SelectTrigger>
-            <SelectContent align="end">
-              <SelectItem value="Eddie Lake">Eddie Lake</SelectItem>
-              <SelectItem value="Jamik Tashpulatov">
-                Jamik Tashpulatov
-              </SelectItem>
-            </SelectContent>
-          </Select>
-        </>
+        <div className="flex items-center justify-center">
+          <Send className="text-gray-500 w-4 h-4" />
+        </div>
+
+
+
       )
+
+
     },
   },
   {
@@ -297,7 +299,9 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
             className="flex size-8 text-muted-foreground data-[state=open]:bg-muted"
             size="icon"
           >
-            <MoreVerticalIcon />
+            {/* <MoreVerticalIcon /> */}
+            <ChevronDown color="black" size={24} />
+
             <span className="sr-only">Open menu</span>
           </Button>
         </DropdownMenuTrigger>
@@ -448,16 +452,16 @@ export function DataTable({
           </TabsTrigger>
           <TabsTrigger value="focus-documents">Archived Articles</TabsTrigger>
         </TabsList>
-        
+
         <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm">
+              {/* <Button variant="outline" size="sm">
                 <ColumnsIcon />
                 <span className="hidden lg:inline">Customize Columns</span>
                 <span className="lg:hidden">Columns</span>
                 <ChevronDownIcon />
-              </Button>
+              </Button> */}
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56">
               {table
@@ -483,20 +487,20 @@ export function DataTable({
                 })}
             </DropdownMenuContent>
           </DropdownMenu>
-          <Button variant="outline" size="sm">
+          {/* <Button variant="outline" size="sm">
             <PlusIcon />
             <span className="hidden lg:inline">Add Section</span>
-          </Button>
+          </Button> */}
         </div>
       </div>
 
-    <div className="flex justify-center my-2">
-  <input
-    type="search"
-    placeholder="Search articles..."
-    className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-  />
-</div>
+      <div className="flex justify-center my-1">
+        <input
+          type="search"
+          placeholder="search for Title & Keywords..."
+          className="w-full text-md max-w-xs px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
 
       <TabsContent
         value="outline"
@@ -520,9 +524,9 @@ export function DataTable({
                           {header.isPlaceholder
                             ? null
                             : flexRender(
-                                header.column.columnDef.header,
-                                header.getContext()
-                              )}
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )}
                         </TableHead>
                       )
                     })}

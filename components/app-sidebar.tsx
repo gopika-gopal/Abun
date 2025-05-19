@@ -13,6 +13,8 @@ import {
   RefreshCcw,
   MessageCircle,
   SquarePen,
+  AudioWaveform,
+  GalleryVerticalEnd,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -29,7 +31,7 @@ import {
 
 import Image from "next/image";
 import logo from "../app/New-Abun-logo.png";
-import { NavOtherProducts } from "../components/nav-otherproducts";
+// import { NavOtherProducts } from "../components/nav-otherproducts";
 
 
 
@@ -40,8 +42,9 @@ const data = {
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
+
   teams: [
-  {
+    {
     name: "samplewebsite.com",
     logo: () => (
       <img
@@ -52,25 +55,51 @@ const data = {
     ),
     plan: "",
   },
-
-
-  // teams: [
-  //   {
-  //     name: "samplewebsite.com",
-  //     logo: GalleryVerticalEnd,
-  //     plan: "",
-  //   },
     // {
-    //   name: "Acme Corp.",
-    //   logo: AudioWaveform,
-    //   plan: "Startup",
+    //   name: "Acme Inc",
+    //   logo: GalleryVerticalEnd,
+    //   plan: "Enterprise",
     // },
-    // {
-    //   name: "Evil Corp.",
-    //   logo: Command,
-    //   plan: "Free",
-    // },
+    {
+      name: "Acme Corp.",
+      logo: AudioWaveform,
+      plan: "Startup",
+    },
+    {
+      name: "Evil Corp.",
+      logo: Command,
+      plan: "Free",
+    },
   ],
+//  teams: [
+//   {
+//     name: "samplewebsite.com",
+//     logo: () => (
+//       <img
+//         src="https://app.abun.com/static/media/default-competitor-logo1.405d586ecdc96f2013cc.webp"
+//         alt="logo"
+//         className="size-12 object-contain"
+//       />
+//     ),
+//     plan: "",
+//   },
+//   {
+//     name: "samplewebsite.com",
+//     logo: GalleryVerticalEnd,
+//     plan: "",
+//   },
+//   {
+//     name: "Acme Corp.",
+//     logo: AudioWaveform,   
+//     plan: "Startup",
+//   },
+//   {
+//     name: "Evil Corp.",
+//     logo: Command,        
+//     plan: "Free",
+//   },
+// ],
+
   navMain: [
     {
       title: "Articles",
@@ -120,29 +149,29 @@ const data = {
         },
       ],
     },
-    // {
-    //   title: "Other Products",
-    //   url: "#",
-    //   icon: Boxes,
-    //   items: [
-    //     {
-    //       title: "Deliveryman.ai",
-    //       url: "#",
-    //     },
-    //     {
-    //       title: "Draftss.com",
-    //       url: "#",
-    //     },
-    //     {
-    //       title: "AICallCenter",
-    //       url: "#",
-    //     },
-    //     {
-    //       title: "ClientPortalIOS",
-    //       url: "#",
-    //     },
-    //   ],
-    // },
+    {
+      title: "Other Products",
+      url: "#",
+      icon: Boxes,
+      items: [
+        {
+          title: "Deliveryman.ai",
+          url: "#",
+        },
+        {
+          title: "Draftss.com",
+          url: "#",
+        },
+        {
+          title: "AICallCenter",
+          url: "#",
+        },
+        {
+          title: "ClientPortalIOS",
+          url: "#",
+        },
+      ],
+    },
     // {
     //   title: "Documentation",
     //   url: "#",
@@ -255,23 +284,19 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 return (
-  <Sidebar collapsible="icon" {...props}>
-  <SidebarHeader className="flex justify-center items-center">
-    <Image src={logo} alt="Abun Logo" width={100} height={68} className="mb-2" />
-  </SidebarHeader>
-  <SidebarHeader>
-    <TeamSwitcher teams={data.teams} />
-  </SidebarHeader>
-  <SidebarContent>
-    <NavMain items={data.navMain} />
-    <NavProjects projects={data.projects} />
-    <NavOtherProducts />
-  </SidebarContent>
-  <SidebarFooter>
-    <NavUser user={data.user} />
-  </SidebarFooter>
-  <SidebarRail />
-</Sidebar>
-)
+    <Sidebar collapsible="icon" {...props}>
+      <SidebarHeader>
+        <TeamSwitcher teams={data.teams} />
+      </SidebarHeader>
+      <SidebarContent>
+        <NavMain items={data.navMain} />
+        <NavProjects projects={data.projects} />
+      </SidebarContent>
+      <SidebarFooter>
+        <NavUser user={data.user} />
+      </SidebarFooter>
+      <SidebarRail />
+    </Sidebar>
+  )
 
 }
