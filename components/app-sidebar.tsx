@@ -27,6 +27,12 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 
+import Image from "next/image";
+import logo from "../app/New-Abun-logo.png";
+import { NavOtherProducts } from "../components/nav-otherproducts";
+
+
+
 // This is sample data.
 const data = {
   user: {
@@ -114,29 +120,29 @@ const data = {
         },
       ],
     },
-    {
-      title: "Other Products",
-      url: "#",
-      icon: Boxes,
-      items: [
-        {
-          title: "Deliveryman.ai",
-          url: "#",
-        },
-        {
-          title: "Draftss.com",
-          url: "#",
-        },
-        {
-          title: "AICallCenter",
-          url: "#",
-        },
-        {
-          title: "ClientPortalIOS",
-          url: "#",
-        },
-      ],
-    },
+    // {
+    //   title: "Other Products",
+    //   url: "#",
+    //   icon: Boxes,
+    //   items: [
+    //     {
+    //       title: "Deliveryman.ai",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Draftss.com",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "AICallCenter",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "ClientPortalIOS",
+    //       url: "#",
+    //     },
+    //   ],
+    // },
     // {
     //   title: "Documentation",
     //   url: "#",
@@ -231,26 +237,41 @@ const data = {
       icon: MessageCircle,
     },
   ],
+  otherProducts: [
+  {
+    title: "Other Products",
+    url: "#",
+    icon: Boxes,
+    items: [
+      { title: "Deliveryman.ai", url: "#" },
+      { title: "Draftss.com", url: "#" },
+      { title: "AICallCenter", url: "#" },
+      { title: "ClientPortalIOS", url: "#" },
+    ],
+  },
+],
+
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 return (
   <Sidebar collapsible="icon" {...props}>
-    <SidebarHeader className="flex justify-center items-center h-20">
-      <span className="font-extrabold text-5xl mb-3">abun</span>
-    </SidebarHeader>
-    <SidebarHeader>
-      <TeamSwitcher teams={data.teams} />
-    </SidebarHeader>
-    <SidebarContent>
-      <NavMain items={data.navMain} />
-      <NavProjects projects={data.projects} />
-    </SidebarContent>
-    <SidebarFooter>
-      <NavUser user={data.user} />
-    </SidebarFooter>
-    <SidebarRail />
-  </Sidebar>
+  <SidebarHeader className="flex justify-center items-center">
+    <Image src={logo} alt="Abun Logo" width={100} height={68} className="mb-2" />
+  </SidebarHeader>
+  <SidebarHeader>
+    <TeamSwitcher teams={data.teams} />
+  </SidebarHeader>
+  <SidebarContent>
+    <NavMain items={data.navMain} />
+    <NavProjects projects={data.projects} />
+    <NavOtherProducts />
+  </SidebarContent>
+  <SidebarFooter>
+    <NavUser user={data.user} />
+  </SidebarFooter>
+  <SidebarRail />
+</Sidebar>
 )
 
 }

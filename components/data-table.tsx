@@ -448,6 +448,7 @@ export function DataTable({
           </TabsTrigger>
           <TabsTrigger value="focus-documents">Archived Articles</TabsTrigger>
         </TabsList>
+        
         <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -488,6 +489,15 @@ export function DataTable({
           </Button>
         </div>
       </div>
+
+    <div className="flex justify-center my-2">
+  <input
+    type="search"
+    placeholder="Search articles..."
+    className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+  />
+</div>
+
       <TabsContent
         value="outline"
         className="relative flex flex-col gap-4 overflow-auto px-4 lg:px-6"
