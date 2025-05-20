@@ -199,13 +199,13 @@
 }
 
 @layer components {
-  .tabs-trigger {
+  /* .tabs-trigger {
     font-family: var(--font-manrope), sans-serif;
-  }
+  } */
 }
 
 @layer utilities {
-  .font-primary {
+  /* .font-primary {
     font-family: var(--font-geist), sans-serif;
     font-weight: 700;
   }
@@ -221,5 +221,5 @@
 
   .text-secondary {
     color: #FACE49;
-  }
+  } */
 }
