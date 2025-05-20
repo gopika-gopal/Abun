@@ -2,7 +2,7 @@
 
 import {
   BadgeCheck,
-  Bell,
+  // Bell,
   ChevronsUpDown,
   CreditCard,
   LogOut,
