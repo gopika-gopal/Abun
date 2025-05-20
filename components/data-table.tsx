@@ -49,7 +49,7 @@ import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 import { z } from "zod"
 
 import { useIsMobile } from "@/hooks/use-mobile"
-// import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
   ChartConfig,
@@ -424,37 +424,44 @@ export function DataTable({
           </SelectContent>
         </Select>
         <TabsList className="@4xl/main:flex hidden">
-          <TabsTrigger value="outline">Generated Articles</TabsTrigger>
-          <TabsTrigger value="past-performance" className="gap-1">
-            Published Articles{" "}
-            {/* <Badge
+          <TabsTrigger value="outline">Generated Articless{" "}
+            <Badge
               variant="secondary"
               className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
             >
               3
-            </Badge> */}
+            </Badge>
+          </TabsTrigger>
+          <TabsTrigger value="past-performance" className="gap-1">
+            Published Articles{" "}
+            <Badge
+              variant="secondary"
+              className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
+            >
+              3
+            </Badge>
           </TabsTrigger>
           <TabsTrigger value="key-personnel" className="gap-1">
             Scheduled Articles{" "}
-            {/* <Badge
+            <Badge
               variant="secondary"
               className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
             >
               2
-            </Badge> */}
+            </Badge>
           </TabsTrigger>
           <TabsTrigger value="focus-documents">Archived Articles</TabsTrigger>
         </TabsList>
 
-        <div className="flex items-center gap-2">
+        {/* <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              {/* <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm">
                 <ColumnsIcon />
                 <span className="hidden lg:inline">Customize Columns</span>
                 <span className="lg:hidden">Columns</span>
                 <ChevronDownIcon />
-              </Button> */}
+              </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56">
               {table
@@ -480,20 +487,22 @@ export function DataTable({
                 })}
             </DropdownMenuContent>
           </DropdownMenu>
-          {/* <Button variant="outline" size="sm">
+          <Button variant="outline" size="sm">
             <PlusIcon />
             <span className="hidden lg:inline">Add Section</span>
-          </Button> */}
-        </div>
-      </div>
+          </Button>
+        </div> */}
 
-      <div className="flex justify-center my-1">
+        <div className="flex justify-center my-1">
         <input
           type="search"
-          placeholder="search for Title & Keywords..."
+          placeholder="Search for Title & Keywords..."
           className="w-full text-md max-w-xs px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
+      </div>
+
+      
 
       <TabsContent
         value="outline"

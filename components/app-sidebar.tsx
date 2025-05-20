@@ -30,6 +30,7 @@ import {
 
 import Image from 'next/image';
 import abunLogo from "./img/New-Abun-logo.png";
+import { title } from "process";
 // This is sample data.
 const data = {
   user: {
@@ -100,7 +101,7 @@ const data = {
       title: "Articles",
       url: "#",
       icon: FileText,
-      isActive: true,
+      isActive: false,
       items: [
         {
           title: "Create Article",
@@ -166,6 +167,7 @@ const data = {
           url: "#",
         },
       ],
+      
     },
     // {
     //   title: "Documentation",
