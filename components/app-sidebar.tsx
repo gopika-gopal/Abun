@@ -1,6 +1,6 @@
 "use client"
-
 import * as React from "react"
+import "../app/globals.css";
 import {
   FileText,
   Boxes,
@@ -28,7 +28,8 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 
-
+import Image from 'next/image';
+import abunLogo from "./img/New-Abun-logo.png";
 // This is sample data.
 const data = {
   user: {
@@ -39,16 +40,16 @@ const data = {
 
   teams: [
     {
-    name: "samplewebsite.com",
-    logo: () => (
-      <img
-        src="https://app.abun.com/static/media/default-competitor-logo1.405d586ecdc96f2013cc.webp"
-        alt="logo"
-        className="size-12 object-contain"
-      />
-    ),
-    plan: "",
-  },
+      name: "samplewebsite.com",
+      logo: () => (
+        <img
+          src="https://app.abun.com/static/media/default-competitor-logo1.405d586ecdc96f2013cc.webp"
+          alt="logo"
+          className="size-12 object-contain"
+        />
+      ),
+      plan: "",
+    },
     // {
     //   name: "Acme Inc",
     //   logo: GalleryVerticalEnd,
@@ -65,34 +66,34 @@ const data = {
       plan: "Free",
     },
   ],
-//  teams: [
-//   {
-//     name: "samplewebsite.com",
-//     logo: () => (
-//       <img
-//         src="https://app.abun.com/static/media/default-competitor-logo1.405d586ecdc96f2013cc.webp"
-//         alt="logo"
-//         className="size-12 object-contain"
-//       />
-//     ),
-//     plan: "",
-//   },
-//   {
-//     name: "samplewebsite.com",
-//     logo: GalleryVerticalEnd,
-//     plan: "",
-//   },
-//   {
-//     name: "Acme Corp.",
-//     logo: AudioWaveform,   
-//     plan: "Startup",
-//   },
-//   {
-//     name: "Evil Corp.",
-//     logo: Command,        
-//     plan: "Free",
-//   },
-// ],
+  //  teams: [
+  //   {
+  //     name: "samplewebsite.com",
+  //     logo: () => (
+  //       <img
+  //         src="https://app.abun.com/static/media/default-competitor-logo1.405d586ecdc96f2013cc.webp"
+  //         alt="logo"
+  //         className="size-12 object-contain"
+  //       />
+  //     ),
+  //     plan: "",
+  //   },
+  //   {
+  //     name: "samplewebsite.com",
+  //     logo: GalleryVerticalEnd,
+  //     plan: "",
+  //   },
+  //   {
+  //     name: "Acme Corp.",
+  //     logo: AudioWaveform,   
+  //     plan: "Startup",
+  //   },
+  //   {
+  //     name: "Evil Corp.",
+  //     logo: Command,        
+  //     plan: "Free",
+  //   },
+  // ],
 
   navMain: [
     {
@@ -261,25 +262,28 @@ const data = {
     },
   ],
   otherProducts: [
-  {
-    title: "Other Products",
-    url: "#",
-    icon: Boxes,
-    items: [
-      { title: "Deliveryman.ai", url: "#" },
-      { title: "Draftss.com", url: "#" },
-      { title: "AICallCenter", url: "#" },
-      { title: "ClientPortalIOS", url: "#" },
-    ],
-  },
-],
+    {
+      title: "Other Products",
+      url: "#",
+      icon: Boxes,
+      items: [
+        { title: "Deliveryman.ai", url: "#" },
+        { title: "Draftss.com", url: "#" },
+        { title: "AICallCenter", url: "#" },
+        { title: "ClientPortalIOS", url: "#" },
+      ],
+    },
+  ],
 
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-return (
+  return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
+        <div className="w-full flex justify-center mb-4">
+          <Image src={abunLogo} alt="Logo" width={100} height={40} />
+        </div>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
