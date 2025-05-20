@@ -3,18 +3,19 @@
 import * as React from "react";
 import "../app/globals.css";
 import {
-  FileText,
-  Boxes,
   Bot,
   Command,
-  HelpCircle,
-  Link2,
-  ShoppingCart,
-  Handshake,
-  RefreshCcw,
-  MessageCircle,
-  SquarePen,
   AudioWaveform,
+  BookOpen,
+  Link,
+  Share2,
+  CreditCard,
+  LifeBuoy,
+  Megaphone,
+  MessageSquare,
+  Package,
+  Puzzle,
+  Users,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -62,83 +63,85 @@ const data = {
     },
   ],
   navMain: [
-    {
-      title: "Articles",
-      url: "#",
-      icon: FileText,
-      isActive: false,
-      items: [
-        { title: "Create Article", url: "#" },
-        { title: "Generated Articles", url: "#" },
-        { title: "Keyword Projects", url: "#" },
-        { title: "AI Keyword to Article", url: "#" },
-        { title: "Steal Competitor Keyword", url: "#" },
-        { title: "Import Keyword from GSC", url: "#" },
-        { title: "Manual Keyword to Article", url: "#" },
-        { title: "Bulk Keyword to Article", url: "#" },
-        { title: "Longtail Keyword to Article", url: "#" },
-        { title: "Article Settings", url: "#" },
-      ],
-    },
-    {
-      title: "Auto Blog",
-      url: "#",
-      icon: SquarePen,
-    },
-    {
-      title: "Internal Links",
-      url: "#",
-      icon: Link2,
-    },
-    {
-      title: "Free Backlinks",
-      url: "#",
-      icon: Handshake,
-    },
-  ],
+  {
+    title: "Articles",
+    url: "#",
+    icon: BookOpen, // Replacing FileText for a broader article context
+    isActive: false,
+    items: [
+      { title: "Create Article", url: "#" },
+      { title: "Generated Articles", url: "#" },
+      { title: "Keyword Projects", url: "#" },
+      { title: "AI Keyword to Article", url: "#" },
+      { title: "Steal Competitor Keyword", url: "#" },
+      { title: "Import Keyword from GSC", url: "#" },
+      { title: "Manual Keyword to Article", url: "#" },
+      { title: "Bulk Keyword to Article", url: "#" },
+      { title: "Longtail Keyword to Article", url: "#" },
+      { title: "Article Settings", url: "#" },
+    ],
+  },
+  {
+    title: "Auto Blog",
+    url: "#",
+    icon: Bot, // Represents automation
+  },
+  {
+    title: "Internal Links",
+    url: "#",
+    icon: Link, // More visually clean than Link2
+  },
+  {
+    title: "Free Backlinks",
+    url: "#",
+    icon: Share2, // Represents backlinks or shares
+  },
+],
+
   projects: [
-    {
-      name: "Other Products",
-      url: "#",
-      icon: Boxes,
-      items: [
-        { title: "Deliveryman.ai", url: "#" },
-        { title: "Draftss.com", url: "#" },
-        { title: "AICallCenter", url: "#" },
-        { title: "ClientPortalIOS", url: "#" },
-      ],
-    },
-    {
-      name: "Integrations",
-      url: "#",
-      icon: Command,
-    },
-    {
-      name: "What's New",
-      url: "#",
-      icon: ShoppingCart,
-    },
-    {
-      name: "Subscription",
-      url: "#",
-      icon: Bot,
-    },
-    {
-      name: "Help Center",
-      url: "#",
-      icon: HelpCircle,
-    },
-    {
-      name: "Live Chat Support",
-      url: "#",
-      icon: RefreshCcw,
-    },
-    {
-      name: "Affiliate Program",
-      url: "#",
-      icon: MessageCircle,
-    },
-  ],
+  {
+    name: "Other Products",
+    url: "#",
+    icon: Package, // Clearer than Boxes, represents a product suite
+    items: [
+      { title: "Deliveryman.ai", url: "#" },
+      { title: "Draftss.com", url: "#" },
+      { title: "AICallCenter", url: "#" },
+      { title: "ClientPortalIOS", url: "#" },
+    ],
+  },
+  {
+    name: "Integrations",
+    url: "#",
+    icon: Puzzle, // Represents plugins and integrations
+  },
+  {
+    name: "What's New",
+    url: "#",
+    icon: Megaphone, // Better for announcements
+  },
+  {
+    name: "Subscription",
+    url: "#",
+    icon: CreditCard, // More intuitive for payment/subscription
+  },
+  {
+    name: "Help Center",
+    url: "#",
+    icon: LifeBuoy, // Better metaphor for support/help
+  },
+  {
+    name: "Live Chat Support",
+    url: "#",
+    icon: MessageSquare, // Chat-specific icon
+  },
+  {
+    name: "Affiliate Program",
+    url: "#",
+    icon: Users, // Represents a community/partner model
+  },
+],
+
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {

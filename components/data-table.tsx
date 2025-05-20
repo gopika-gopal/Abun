@@ -41,6 +41,7 @@ import {
   ChevronRightIcon,
   ChevronsLeftIcon,
   ChevronsRightIcon,
+  Globe,
   GripVerticalIcon,
   Send,
   TrendingUpIcon,
@@ -462,35 +463,55 @@ export function DataTable({
         {/* Right Side: Search bar + Dropdown */}
         <div className="flex items-center gap-4 ml-auto">
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline">
-                Choose Website
-                <ChevronDown color="black" size={24} />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-36">
-              {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
-              {/* <DropdownMenuSeparator /> */}
-              <DropdownMenuGroup>
-                <DropdownMenuItem>
-                  <span>Hashnode</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Dev.to</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>WordPress</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Blogger</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Quora</span>
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
+  <DropdownMenuTrigger asChild>
+    <Button variant="outline" className="flex items-center gap-2">
+      <Globe className="w-4 h-4" />
+      Choose Website
+      <ChevronDown color="black" size={20} />
+    </Button>
+  </DropdownMenuTrigger>
 
-            </DropdownMenuContent>
-          </DropdownMenu>
+  <DropdownMenuContent className="w-44">
+    <DropdownMenuGroup>
+      <DropdownMenuItem className="gap-2">
+        <img
+          src="https://www.google.com/s2/favicons?sz=32&domain=draftss.com"
+          alt="draftss.com"
+          className="w-4 h-4"
+        />
+        <span>draftss.com</span>
+      </DropdownMenuItem>
+
+      <DropdownMenuItem className="gap-2">
+        <img
+          src="https://www.google.com/s2/favicons?sz=32&domain=yourblogdomain.com"
+          alt="Blog"
+          className="w-4 h-4"
+        />
+        <span>blog</span>
+      </DropdownMenuItem>
+
+      <DropdownMenuItem className="gap-2">
+        <img
+          src="https://www.google.com/s2/favicons?sz=32&domain=deliveryman.ai"
+          alt="deliveryman.ai"
+          className="w-4 h-4"
+        />
+        <span>deliveryman.ai</span>
+      </DropdownMenuItem>
+
+      <DropdownMenuItem className="gap-2">
+        <img
+          src="https://www.google.com/s2/favicons?sz=32&domain=clientportos.com"
+          alt="clientportos.com"
+          className="w-4 h-4"
+        />
+        <span>clientportos.com</span>
+      </DropdownMenuItem>
+    </DropdownMenuGroup>
+  </DropdownMenuContent>
+</DropdownMenu>
+
 
           {/* searchbar */}
           <input
