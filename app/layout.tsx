@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Manrope } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "../components/theme-provider"
+
 
 const geist = Geist({
   weight: ["400", "700"],
@@ -29,7 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} ${manrope.variable}`}>
       <body className="font-geist antialiased">
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

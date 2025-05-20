@@ -41,9 +41,23 @@ import {
   ChevronRightIcon,
   ChevronsLeftIcon,
   ChevronsRightIcon,
+  Cloud,
+  CreditCard,
+  Github,
   GripVerticalIcon,
+  Keyboard,
+  LifeBuoy,
+  LogOut,
+  Mail,
+  MessageSquare,
+  Plus,
+  PlusCircle,
   Send,
+  Settings,
   TrendingUpIcon,
+  User,
+  UserPlus,
+  Users,
 } from "lucide-react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 import { z } from "zod"
@@ -62,8 +76,15 @@ import {
   DropdownMenu,
   // DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
   DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
@@ -406,103 +427,99 @@ export function DataTable({
       className="flex w-full flex-col justify-start gap-6"
     >
       <div className="flex items-center justify-between px-4 lg:px-6">
-        <Label htmlFor="view-selector" className="sr-only">
-          View
-        </Label>
-        <Select defaultValue="outline">
-          <SelectTrigger
-            className="@4xl/main:hidden flex w-fit"
-            id="view-selector"
-          >
-            <SelectValue placeholder="Select a view" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="outline">Outline</SelectItem>
-            <SelectItem value="past-performance">Past Performance</SelectItem>
-            <SelectItem value="key-personnel">Key Personnel</SelectItem>
-            <SelectItem value="focus-documents">Focus Documents</SelectItem>
-          </SelectContent>
-        </Select>
-        <TabsList className="@4xl/main:flex hidden">
-          <TabsTrigger value="outline">Generated Articless{" "}
-            <Badge
-              variant="secondary"
-              className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
+        {/* Left Side: Mobile Select + Tabs for larger screens */}
+        <div className="flex items-center gap-4">
+          <Label htmlFor="view-selector" className="sr-only">
+            View
+          </Label>
+          <Select defaultValue="outline">
+            <SelectTrigger
+              className="@4xl/main:hidden flex w-fit"
+              id="view-selector"
             >
-              3
-            </Badge>
-          </TabsTrigger>
-          <TabsTrigger value="past-performance" className="gap-1">
-            Published Articles{" "}
-            <Badge
-              variant="secondary"
-              className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
-            >
-              3
-            </Badge>
-          </TabsTrigger>
-          <TabsTrigger value="key-personnel" className="gap-1">
-            Scheduled Articles{" "}
-            <Badge
-              variant="secondary"
-              className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
-            >
-              2
-            </Badge>
-          </TabsTrigger>
-          <TabsTrigger value="focus-documents">Archived Articles</TabsTrigger>
-        </TabsList>
+              <SelectValue placeholder="Select a view" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="outline">Outline</SelectItem>
+              <SelectItem value="past-performance">Past Performance</SelectItem>
+              <SelectItem value="key-personnel">Key Personnel</SelectItem>
+              <SelectItem value="focus-documents">Focus Documents</SelectItem>
+            </SelectContent>
+          </Select>
 
-        {/* <div className="flex items-center gap-2">
+          <TabsList className="@4xl/main:flex hidden">
+            <TabsTrigger value="outline">
+              Generated Articles{" "}
+              <Badge
+                variant="secondary"
+                className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
+              >
+                3
+              </Badge>
+            </TabsTrigger>
+            <TabsTrigger value="past-performance" className="gap-1">
+              Published Articles{" "}
+              <Badge
+                variant="secondary"
+                className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
+              >
+                3
+              </Badge>
+            </TabsTrigger>
+            <TabsTrigger value="key-personnel" className="gap-1">
+              Scheduled Articles{" "}
+              <Badge
+                variant="secondary"
+                className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
+              >
+                2
+              </Badge>
+            </TabsTrigger>
+            <TabsTrigger value="focus-documents">Archived Articles</TabsTrigger>
+          </TabsList>
+        </div>
+
+        {/* Right Side: Search bar + Dropdown */}
+        <div className="flex items-center gap-4 ml-auto">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm">
-                <ColumnsIcon />
-                <span className="hidden lg:inline">Customize Columns</span>
-                <span className="lg:hidden">Columns</span>
-                <ChevronDownIcon />
+              <Button variant="outline">
+                Choose Website
+                <ChevronDown color="black" size={24} />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-56">
-              {table
-                .getAllColumns()
-                .filter(
-                  (column) =>
-                    typeof column.accessorFn !== "undefined" &&
-                    column.getCanHide()
-                )
-                .map((column) => {
-                  return (
-                    <DropdownMenuCheckboxItem
-                      key={column.id}
-                      className="capitalize"
-                      checked={column.getIsVisible()}
-                      onCheckedChange={(value) =>
-                        column.toggleVisibility(!!value)
-                      }
-                    >
-                      {column.id}
-                    </DropdownMenuCheckboxItem>
-                  )
-                })}
+            <DropdownMenuContent className="w-36">
+              {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
+              {/* <DropdownMenuSeparator /> */}
+              <DropdownMenuGroup>
+                <DropdownMenuItem>
+                  <span>Hashnode</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <span>Dev.to</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <span>WordPress</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <span>Blogger</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <span>Quora</span>
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+
             </DropdownMenuContent>
           </DropdownMenu>
-          <Button variant="outline" size="sm">
-            <PlusIcon />
-            <span className="hidden lg:inline">Add Section</span>
-          </Button>
-        </div> */}
 
-        <div className="flex justify-center my-1">
-        <input
-          type="search"
-          placeholder="Search for Title & Keywords..."
-          className="w-full text-md max-w-xs px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+          {/* searchbar */}
+          <input
+            type="search"
+            placeholder="Search for Title & Keywords..."
+            className="w-full max-w-xs text-sm px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
       </div>
-      </div>
-
-      
 
       <TabsContent
         value="outline"
