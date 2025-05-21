@@ -16,6 +16,13 @@ import {
   Package,
   Puzzle,
   Users,
+  Calendar,
+  BarChart3,
+  Calculator,
+  FileText,
+  LayoutDashboard,
+  PenTool,
+  Search,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -66,7 +73,7 @@ const data = {
   {
     title: "Articles",
     url: "#",
-    icon: BookOpen, // Replacing FileText for a broader article context
+    icon: FileText,
     isActive: false,
     items: [
       { title: "Create Article", url: "#" },
@@ -84,25 +91,116 @@ const data = {
   {
     title: "Auto Blog",
     url: "#",
-    icon: Bot, // Represents automation
+    icon: LayoutDashboard,
   },
   {
-    title: "Internal Links",
+    title: "Programmatic SEO",
     url: "#",
-    icon: Link, // More visually clean than Link2
+    icon: PenTool,
+    isActive: false,
+    items: [
+      { title: "Create pSEO Articles", url: "#" },
+      { title: "Programmatic SEO Projects", url: "#" },
+    ],
   },
+  {
+    title: "AI Glossary Creator",
+    url: "#",
+    icon: BookOpen,
+    isActive: false,
+    items: [
+      { title: "Create AI Glossary", url: "#" },
+      { title: "AI Glossary Projects", url: "#" },
+    ],
+  },
+  {
+    title: "Blog Author Finder",
+    url: "#",
+    icon: Users,
+  },
+  {
+    title: "Guest Post Finder",
+    url: "#",
+    icon: Search,
+    isActive: false,
+    items: [
+      { title: "Create Guest Post Finder", url: "#" },
+      { title: "Guest Post Finder Projects", url: "#" },
+    ],
+  },
+  {
+    title: "Reddit SEO",
+    url: "#",
+    icon: MessageSquare,
+    isActive: false,
+    items: [
+      { title: "Create Reddit SEO", url: "#" },
+      { title: "Reddit SEO Projects", url: "#" },
+    ],
+  },
+    {
+      title: "Internal Links",
+      url: "#",
+      icon: Link,
+    },
   {
     title: "Free Backlinks",
     url: "#",
-    icon: Share2, // Represents backlinks or shares
+    icon: Share2,
   },
+  {
+    title: "GSC Insights",
+    url: "#",
+    icon: BarChart3,
+  },
+  {
+    title: "AI Calculator Generator",
+    url: "#",
+    icon: Calculator,
+  },
+  {
+    title: "Content Calendar",
+    url: "#",
+    icon: Calendar,
+  },
+  
 ],
 
-  projects: [
+ projects: [
+  {
+    name: "Integrations",
+    url: "#",
+    icon: Puzzle,
+  },
+  {
+    name: "What's New",
+    url: "#",
+    icon: Megaphone, 
+  },
+  {
+    name: "Subscription",
+    url: "#",
+    icon: CreditCard, 
+  },
+  {
+    name: "Help Center",
+    url: "#",
+    icon: LifeBuoy, 
+  },
+  {
+    name: "Live Chat Support",
+    url: "#",
+    icon: MessageSquare,
+  },
+  {
+    name: "Affiliate Program",
+    url: "#",
+    icon: Users,
+  },
   {
     name: "Other Products",
     url: "#",
-    icon: Package, // Clearer than Boxes, represents a product suite
+    icon: Package, 
     items: [
       { title: "Deliveryman.ai", url: "#" },
       { title: "Draftss.com", url: "#" },
@@ -110,37 +208,8 @@ const data = {
       { title: "ClientPortalIOS", url: "#" },
     ],
   },
-  {
-    name: "Integrations",
-    url: "#",
-    icon: Puzzle, // Represents plugins and integrations
-  },
-  {
-    name: "What's New",
-    url: "#",
-    icon: Megaphone, // Better for announcements
-  },
-  {
-    name: "Subscription",
-    url: "#",
-    icon: CreditCard, // More intuitive for payment/subscription
-  },
-  {
-    name: "Help Center",
-    url: "#",
-    icon: LifeBuoy, // Better metaphor for support/help
-  },
-  {
-    name: "Live Chat Support",
-    url: "#",
-    icon: MessageSquare, // Chat-specific icon
-  },
-  {
-    name: "Affiliate Program",
-    url: "#",
-    icon: Users, // Represents a community/partner model
-  },
-],
+]
+
 
 };
 

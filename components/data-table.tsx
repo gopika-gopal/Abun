@@ -1,4 +1,5 @@
 "use client"
+import "../app/globals.css";
 
 import * as React from "react"
 import {
@@ -36,6 +37,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import {
+  Bot,
   ChevronDown,
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -43,8 +45,10 @@ import {
   ChevronsRightIcon,
   Globe,
   GripVerticalIcon,
+  Newspaper,
   Send,
   TrendingUpIcon,
+  UserSquare,
 } from "lucide-react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 import { z } from "zod"
@@ -463,53 +467,41 @@ export function DataTable({
         {/* Right Side: Search bar + Dropdown */}
         <div className="flex items-center gap-4 ml-auto">
           <DropdownMenu>
-  <DropdownMenuTrigger asChild>
-    <Button variant="outline" className="flex items-center gap-2">
-      <Globe className="w-4 h-4" />
-      Choose Website
-      <ChevronDown color="black" size={20} />
-    </Button>
-  </DropdownMenuTrigger>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="flex items-center gap-2">
+                <Globe className="w-4 h-4" />
+                Choose Website
+                <ChevronDown color="black" size={20} />
+              </Button>
+            </DropdownMenuTrigger>
 
-  <DropdownMenuContent className="w-44">
-    <DropdownMenuGroup>
-      <DropdownMenuItem className="gap-2">
-        <img
-          src="https://www.google.com/s2/favicons?sz=32&domain=draftss.com"
-          alt="draftss.com"
-          className="w-4 h-4"
-        />
-        <span>draftss.com</span>
-      </DropdownMenuItem>
+            <DropdownMenuContent className="w-44">
+              <DropdownMenuGroup>
+                <DropdownMenuItem className="gap-2">
+                  <img
+                    src="https://www.google.com/s2/favicons?sz=32&domain=draftss.com"
+                    alt="draftss.com"
+                    className="w-4 h-4"
+                  />
+                  <span>draftss.com</span>
+                </DropdownMenuItem>
 
-      <DropdownMenuItem className="gap-2">
-        <img
-          src="https://www.google.com/s2/favicons?sz=32&domain=yourblogdomain.com"
-          alt="Blog"
-          className="w-4 h-4"
-        />
-        <span>blog</span>
-      </DropdownMenuItem>
+                <DropdownMenuItem className="gap-2">
+                  <Newspaper className="w-4 h-4" />
+                  <span>blog</span>
+                </DropdownMenuItem>
 
-      <DropdownMenuItem className="gap-2">
-        <img
-          src="https://www.google.com/s2/favicons?sz=32&domain=deliveryman.ai"
-          alt="deliveryman.ai"
-          className="w-4 h-4"
-        />
-        <span>deliveryman.ai</span>
-      </DropdownMenuItem>
+                <DropdownMenuItem className="gap-2">
+                  <Bot className="w-4 h-4" />
+                  <span>deliveryman.ai</span>
+                </DropdownMenuItem>
 
-      <DropdownMenuItem className="gap-2">
-        <img
-          src="https://www.google.com/s2/favicons?sz=32&domain=clientportos.com"
-          alt="clientportos.com"
-          className="w-4 h-4"
-        />
-        <span>clientportos.com</span>
-      </DropdownMenuItem>
-    </DropdownMenuGroup>
-  </DropdownMenuContent>
+                <DropdownMenuItem className="gap-2">
+                  <UserSquare className="w-4 h-4" />
+                  <span>clientportalos.com</span>
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
 </DropdownMenu>
 
 
