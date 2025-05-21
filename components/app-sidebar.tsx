@@ -181,16 +181,21 @@ const data = {
     url: "#",
     icon: CreditCard, 
   },
-  {
+   {
     name: "Help Center",
     url: "#",
     icon: LifeBuoy, 
+    items: [
+      { title: "Knowledgebase", url: "#" },
+      { title: "Live Chat Support", url: "#" },
+      { title: "Tutorials", url: "#" },
+    ],
   },
-  {
-    name: "Live Chat Support",
-    url: "#",
-    icon: MessageSquare,
-  },
+  // {
+  //   name: "Live Chat Support",
+  //   url: "#",
+  //   icon: MessageSquare,
+  // },
   {
     name: "Affiliate Program",
     url: "#",
