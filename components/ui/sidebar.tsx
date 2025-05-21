@@ -548,8 +548,7 @@ function SidebarMenuButton({
 function SidebarMenuAction({
   className,
   asChild = false,
-  showOnHover = false,
-  ...props
+  showOnHover = false
 }: React.ComponentProps<"button"> & {
   asChild?: boolean
   showOnHover?: boolean
