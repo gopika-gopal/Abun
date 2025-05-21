@@ -45,7 +45,6 @@ import {
   ChevronsLeftIcon,
   ChevronsRightIcon,
   Globe,
-  GripVerticalIcon,
   Loader,
   Newspaper,
   Send,
