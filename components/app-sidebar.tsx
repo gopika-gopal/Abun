@@ -37,7 +37,6 @@ import {
 } from "@/components/ui/sidebar";
 
 import Image from "next/image";
-import abunLogo from "./img/New-Abun-logo.png";
 import lightLogo from "./img/abun light mode logo.svg";
 import darkLogo from "./img/abun dark mode logo.svg";
 // import { ScrollArea } from "./ui/scroll-area";
