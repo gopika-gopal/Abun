@@ -48,7 +48,9 @@ import {
   Globe,
   Loader,
   Newspaper,
+  Search,
   Send,
+  Sliders,
   TrendingUpIcon,
   UserSquare,
 } from "lucide-react"
@@ -183,7 +185,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     accessorKey: "type",
     header: "Keyword [Traffic]",
     cell: ({ row }) => (
-      <div>
+      <div className="hover:underline underline-offset-4">
         {/* <Badge variant="outline" className="px-1.5 text-muted-foreground">
           {row.original.type}
         </Badge> */}
@@ -323,7 +325,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       // }
 
       return (
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-left">
           <Send className="text-gray-500 w-4 h-4" />
         </div>
 
@@ -467,133 +469,146 @@ export function DataTable({
       defaultValue="outline"
       className="flex w-full flex-col justify-start gap-6"
     >
-      <div className="flex items-center justify-between px-4 lg:px-6">
-        {/* Left Side: Mobile Select + Tabs for larger screens */}
-        <div className="flex items-center gap-4">
-          <Label htmlFor="view-selector" className="sr-only">
-            View
-          </Label>
-          <Select defaultValue="outline">
-            <SelectTrigger
-              className="@4xl/main:hidden flex w-fit"
-              id="view-selector"
-            >
-              <SelectValue placeholder="Select a view" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="outline">Outline</SelectItem>
-              <SelectItem value="past-performance">Past Performance</SelectItem>
-              <SelectItem value="key-personnel">Key Personnel</SelectItem>
-              <SelectItem value="focus-documents">Focus Documents</SelectItem>
-            </SelectContent>
-          </Select>
+<div className="flex items-center justify-between px-4 lg:px-6">
+  {/* Left Side: Mobile Select + Tabs for larger screens */}
+  <div className="flex items-center gap-1 sm:gap-4">
+    <Label htmlFor="view-selector" className="sr-only">
+      View
+    </Label>
+    <Select defaultValue="outline">
+      <SelectTrigger
+        className="@4xl/main:hidden flex w-fit"
+        id="view-selector"
+      >
+        <SelectValue placeholder="Select a view" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="outline">Outline</SelectItem>
+        <SelectItem value="past-performance">Past Performance</SelectItem>
+        <SelectItem value="key-personnel">Key Personnel</SelectItem>
+        <SelectItem value="focus-documents">Focus Documents</SelectItem>
+      </SelectContent>
+    </Select>
 
-          <TabsList className="@4xl/main:flex hidden">
-            <TabsTrigger value="outline">
-              Generated Articles{" "}
-              <Badge
-                variant="secondary"
-                className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
-              >
-                3
-              </Badge>
-            </TabsTrigger>
-            <TabsTrigger value="past-performance" className="gap-1">
-              Published Articles{" "}
-              <Badge
-                variant="secondary"
-                className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
-              >
-                3
-              </Badge>
-            </TabsTrigger>
-            <TabsTrigger value="key-personnel" className="gap-1">
-              Scheduled Articles{" "}
-              <Badge
-                variant="secondary"
-                className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
-              >
-                2
-              </Badge>
-            </TabsTrigger>
-            <TabsTrigger value="focus-documents">Archived Articles</TabsTrigger>
-          </TabsList>
-        </div>
+    <TabsList className="@4xl/main:flex hidden">
+      <TabsTrigger value="outline">
+        Generated Articles{" "}
+        <Badge
+          variant="secondary"
+          className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
+        >
+          3
+        </Badge>
+      </TabsTrigger>
+      <TabsTrigger value="past-performance" className="gap-1">
+        Published Articles{" "}
+        <Badge
+          variant="secondary"
+          className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
+        >
+          3
+        </Badge>
+      </TabsTrigger>
+      <TabsTrigger value="key-personnel" className="gap-1">
+        Scheduled Articles{" "}
+        <Badge
+          variant="secondary"
+          className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground/30"
+        >
+          2
+        </Badge>
+      </TabsTrigger>
+      <TabsTrigger value="focus-documents">Archived Articles</TabsTrigger>
+    </TabsList>
+  </div>
 
-        {/* Right Side: Search bar + Dropdown */}
-        <div className="flex items-center gap-4 ml-auto">
+  {/* Right Side: Search bar + Dropdown */}
+  <div className="flex items-center gap-1 sm:gap-4 ml-auto">
+    {/* Bulk Action Dropdown */}
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+   <Button variant="outline" className="flex items-center gap-2" disabled={!isAnyRowSelected}>
+  {/* Icon visible only at max 320px */}
+  <Sliders className="w-5 h-5 block max-[320px]:block sm:hidden" aria-hidden="true" />
+  {/* Text hidden at max 320px, visible from sm */}
+  <span className="hidden sm:inline">Bulk Actions</span>
+  <ChevronDown color="black" size={20} />
+</Button>
+
+      </DropdownMenuTrigger>
+
+      <DropdownMenuContent className="w-28">
+        <DropdownMenuGroup>
+          <DropdownMenuItem className="gap-2">
+            <span>Publish</span>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem className="gap-2">
+            <span>Archive</span>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+
+    {/* Choose Website Dropdown */}
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline" className="flex items-center gap-2">
+          <Globe className="w-4 h-4" />
+          <span className="hidden sm:inline">Choose Website</span>
+          <ChevronDown className="w-4 h-4" />
+        </Button>
+      </DropdownMenuTrigger>
+
+      <DropdownMenuContent className="w-44">
+        <DropdownMenuGroup>
+          <DropdownMenuItem className="gap-2">
+            <img
+              src="https://www.google.com/s2/favicons?sz=32&domain=draftss.com"
+              alt="draftss.com"
+              className="w-4 h-4"
+            />
+            <span>draftss.com</span>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem className="gap-2">
+            <Newspaper className="w-4 h-4" />
+            <span>blog</span>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem className="gap-2">
+            <Bot className="w-4 h-4" />
+            <span>deliveryman.ai</span>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem className="gap-2">
+            <UserSquare className="w-4 h-4" />
+            <span>clientportalos.com</span>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+
+    {/* searchbar */}
+    {/* Search Icon for ≤425px */}
+   {/* Search Icon for ≤768px (md breakpoint) */}
+<div className="flex md:hidden items-center justify-center w-9 h-9 border border-gray-300 rounded-md cursor-pointer">
+  <Search className="w-4 h-4 text-gray-500" />
+</div>
+
+{/* Full Search Input for >768px */}
+<div className="hidden md:block w-full max-w-xs">
+  <input
+    type="search"
+    placeholder="Search for Title & Keywords..."
+    className="w-full text-sm px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+  />
+</div>
+
+  </div>
+</div>
 
 
-      {/* Bulk Action Dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="flex items-center gap-2" disabled={!isAnyRowSelected}>
-                Bulk Actions
-                <ChevronDown color="black" size={20} />
-              </Button>
-            </DropdownMenuTrigger>
-
-            <DropdownMenuContent className="w-28">
-              <DropdownMenuGroup>
-                <DropdownMenuItem className="gap-2">
-                  <span>Publish</span>
-                </DropdownMenuItem>
-
-                <DropdownMenuItem className="gap-2">
-                  <span>Archive</span>
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-      {/* Choose Website Dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="flex items-center gap-2">
-                <Globe className="w-4 h-4" />
-                Choose Website
-                <ChevronDown color="black" size={20} />
-              </Button>
-            </DropdownMenuTrigger>
-
-            <DropdownMenuContent className="w-44">
-              <DropdownMenuGroup>
-                <DropdownMenuItem className="gap-2">
-                  <img
-                    src="https://www.google.com/s2/favicons?sz=32&domain=draftss.com"
-                    alt="draftss.com"
-                    className="w-4 h-4"
-                  />
-                  <span>draftss.com</span>
-                </DropdownMenuItem>
-
-                <DropdownMenuItem className="gap-2">
-                  <Newspaper className="w-4 h-4" />
-                  <span>blog</span>
-                </DropdownMenuItem>
-
-                <DropdownMenuItem className="gap-2">
-                  <Bot className="w-4 h-4" />
-                  <span>deliveryman.ai</span>
-                </DropdownMenuItem>
-
-                <DropdownMenuItem className="gap-2">
-                  <UserSquare className="w-4 h-4" />
-                  <span>clientportalos.com</span>
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
-</DropdownMenu>
-
-
-          {/* searchbar */}
-          <input
-            type="search"
-            placeholder="Search for Title & Keywords..."
-            className="w-full max-w-xs text-sm px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-      </div>
 
       <TabsContent
       value="outline"
@@ -766,7 +781,7 @@ export function DataTable({
     </TabsContent>
       <TabsContent
         value="past-performance"
-        className="flex flex-col px-4 lg:px-6"
+        className="relative flex flex-col gap-4 overflow-auto px-4 lg:px-6"
       >
         {/* <div className="aspect-video w-full flex-1 rounded-lg border border-dashed">        </div> */}
         <div className="overflow-hidden rounded-lg border">
@@ -898,7 +913,7 @@ export function DataTable({
           </div>
         </div>
       </TabsContent>
-      <TabsContent value="key-personnel" className="flex flex-col px-4 lg:px-6">
+      <TabsContent value="key-personnel" className="relative flex flex-col gap-4 overflow-auto px-4 lg:px-6">
         {/* <div className="aspect-video w-full flex-1 rounded-lg border border-dashed"></div> */}
         <div className="overflow-hidden rounded-lg border">
           <DndContext
@@ -1031,7 +1046,7 @@ export function DataTable({
       </TabsContent>
       <TabsContent
         value="focus-documents"
-        className="flex flex-col px-4 lg:px-6"
+        className="relative flex flex-col gap-4 overflow-auto px-4 lg:px-6"
       >
         {/* <div className="aspect-video w-full flex-1 rounded-lg border border-dashed"></div> */}
         <div className="overflow-hidden rounded-lg border">

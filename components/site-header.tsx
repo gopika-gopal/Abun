@@ -1,16 +1,14 @@
 "use client";
 
 import * as React from "react";
-// import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import Image from "next/image";
-import lightLogo from "./img/abun light mode logo.svg";
-import darkLogo from "./img/abun dark mode logo.svg";
+
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { useEffect, useState } from "react";
+import { Sun, Moon } from "lucide-react";
 
 export function ModeToggle() {
   const { setTheme, resolvedTheme } = useTheme();
@@ -31,11 +29,11 @@ export function ModeToggle() {
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >
       {isDark ? (
-        // <Sun className="h-5 w-5" />
-        <Image src={darkLogo} alt="Logo" width={30} height={40} />
+        <Sun className="h-5 w-5" />
+        // <Image src={darkLogo} alt="Logo" width={30} height={40} />
       ) : (
-        // <Moon className="h-5 w-5" />
-        <Image src={lightLogo} alt="Logo" width={30} height={40} />
+        <Moon className="h-5 w-5" />
+        // <Image src={lightLogo} alt="Logo" width={30} height={40} />
 
       )}
       <span className="sr-only">

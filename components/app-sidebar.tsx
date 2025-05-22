@@ -38,7 +38,10 @@ import {
 
 import Image from "next/image";
 import abunLogo from "./img/New-Abun-logo.png";
-import { ScrollArea } from "./ui/scroll-area";
+import lightLogo from "./img/abun light mode logo.svg";
+import darkLogo from "./img/abun dark mode logo.svg";
+// import { ScrollArea } from "./ui/scroll-area";
+import { useTheme } from "next-themes";
 
 const data = {
   user: {
@@ -219,21 +222,26 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { theme } = useTheme();
+
+  // Determine which logo to use based on the theme
+  const logoSrc = theme === "dark" ? darkLogo : lightLogo;
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <div className="w-full flex justify-center mb-4">
-          <Image src={abunLogo} alt="Logo" width={100} height={40} />
+          <Image src={logoSrc} alt="Logo" width={100} height={40} />
         </div>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <ScrollArea className="h-full w-full">
+        {/* <ScrollArea className="h-full w-full"> */}
           <div className="p-1">
             <NavMain items={data.navMain} />
             <NavProjects projects={data.projects} />
           </div>
-        </ScrollArea>
+        {/* </ScrollArea> */}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
