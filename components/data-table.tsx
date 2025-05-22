@@ -182,17 +182,17 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: "type",
-    header: "Keyword [Traffic]",
-    cell: ({ row }) => (
-      <div className="hover:underline underline-offset-4">
-        {/* <Badge variant="outline" className="px-1.5 text-muted-foreground">
-          {row.original.type}
-        </Badge> */}
-        <span>{row.original.type}</span>
-      </div>
-    ),
-  },
+  accessorKey: "type",
+  header: "Keyword [Traffic]",
+  cell: ({ row }) => (
+    <span
+      className="hover:underline underline-offset-4 cursor-pointer"
+    >
+      {row.original.type}
+    </span>
+  ),
+},
+
   {
     accessorKey: "status",
     header: "Words",
@@ -208,7 +208,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       //   )}
       //   {row.original.status}
       // </Badge>
-      <span>{row.original.status}</span>
+      <span className="cursor-pointer">{row.original.status}</span>
     ),
   },
   // {
@@ -269,7 +269,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     return (
       <Badge
         variant={variant}
-        className="px-2 py-1 border border-1 border-gray-300 bg-transparent text-foreground flex items-center"
+        className="px-2 py-1 border border-1 border-gray-300 bg-transparent text-foreground flex items-center cursor-pointer"
       >
         {icon}
         {displayValue}
@@ -325,7 +325,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       // }
 
       return (
-        <div className="flex items-center justify-left">
+        <div className="flex items-center justify-left cursor-pointer">
           <Send className="text-gray-500 w-4 h-4" />
         </div>
 
