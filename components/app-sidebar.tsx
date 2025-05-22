@@ -41,7 +41,6 @@ import lightLogo from "./img/abun light mode logo.svg";
 import darkLogo from "./img/abun dark mode logo.svg";
 // import { ScrollArea } from "./ui/scroll-area";
 import { useTheme } from "next-themes";
-import { ScrollArea } from "./ui/scroll-area";
 
 const data = {
   user: {
