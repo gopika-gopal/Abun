@@ -38,6 +38,7 @@ import {
 
 import Image from "next/image";
 import abunLogo from "./img/New-Abun-logo.png";
+import { ScrollArea } from "./ui/scroll-area";
 
 const data = {
   user: {
@@ -227,8 +228,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <ScrollArea className="h-full w-full">
+          <div className="p-1">
+            <NavMain items={data.navMain} />
+            <NavProjects projects={data.projects} />
+          </div>
+        </ScrollArea>
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
