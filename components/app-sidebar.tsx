@@ -41,6 +41,7 @@ import lightLogo from "./img/abun light mode logo.svg";
 import darkLogo from "./img/abun dark mode logo.svg";
 // import { ScrollArea } from "./ui/scroll-area";
 import { useTheme } from "next-themes";
+import { ScrollArea } from "./ui/scroll-area";
 
 const data = {
   user: {
@@ -76,10 +77,10 @@ const data = {
     title: "Articles",
     url: "#",
     icon: FileText,
-    isActive: false,
+    isActive: true,
     items: [
       { title: "Create Article", url: "#" },
-      { title: "Generated Articles", url: "#" },
+      { title: "Generated Articles", url: "#",isActive: true },
       { title: "Keyword Projects", url: "#" },
       { title: "AI Keyword to Article", url: "#" },
       { title: "Steal Competitor Keyword", url: "#" },
@@ -227,6 +228,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const logoSrc = theme === "dark" ? darkLogo : lightLogo;
 
   return (
+    
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <div className="w-full flex justify-center mb-4">

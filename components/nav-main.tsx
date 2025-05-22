@@ -16,6 +16,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
+import { usePathname } from "next/navigation";
 
 export function NavMain({
   items,
@@ -28,9 +29,13 @@ export function NavMain({
     items?: {
       title: string;
       url: string;
+      isActive?: boolean;
     }[];
   }[];
 }) {
+
+const pathname = usePathname();
+
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Tools</SidebarGroupLabel>
@@ -55,8 +60,20 @@ export function NavMain({
                   <SidebarMenuSub>
                     {item.items.map((subItem) => (
                       <SidebarMenuSubItem key={subItem.title}>
-                        <SidebarMenuSubButton asChild>
+                        {/* <SidebarMenuSubButton asChild>
                           <a href={subItem.url}>
+                            <span>{subItem.title}</span>
+                          </a>
+                        </SidebarMenuSubButton> */}
+                        <SidebarMenuSubButton asChild>
+                          <a
+                            href={subItem.url}
+                            className={
+                              subItem.isActive || pathname === subItem.url
+                                ? "bg-sidebar-accent" // Apply hover effect
+                                : ""
+                            }
+                          >
                             <span>{subItem.title}</span>
                           </a>
                         </SidebarMenuSubButton>
