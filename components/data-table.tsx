@@ -469,7 +469,7 @@ export function DataTable({
       defaultValue="outline"
       className="flex w-full flex-col justify-start gap-6"
     >
-<div className="flex items-center justify-between px-4 lg:px-6">
+<div className="flex items-center justify-between px-4 lg:px-6 mt-4 md:mt-0">
   {/* Left Side: Mobile Select + Tabs for larger screens */}
   <div className="flex items-center gap-1 sm:gap-4">
     <Label htmlFor="view-selector" className="sr-only">
@@ -590,20 +590,21 @@ export function DataTable({
     </DropdownMenu>
 
     {/* searchbar */}
-    {/* Search Icon for ≤425px */}
    {/* Search Icon for ≤768px (md breakpoint) */}
-<div className="flex md:hidden items-center justify-center w-9 h-9 border border-gray-300 rounded-md cursor-pointer">
+{/* Search Icon for <1024px */}
+<div className="flex lg:hidden items-center justify-center w-9 h-9 border border-gray-300 rounded-md cursor-pointer">
   <Search className="w-4 h-4 text-gray-500" />
 </div>
 
-{/* Full Search Input for >768px */}
-<div className="hidden md:block w-full max-w-xs">
+{/* Full Search Input for ≥1024px */}
+<div className="hidden lg:block w-full max-w-xs">
   <input
     type="search"
     placeholder="Search for Title & Keywords..."
     className="w-full text-sm px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
   />
 </div>
+
 
   </div>
 </div>
