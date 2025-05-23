@@ -53,6 +53,7 @@ import {
   Sliders,
   TrendingUpIcon,
   UserSquare,
+  X, // Added for close button
 } from "lucide-react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 import { z } from "zod"
@@ -406,6 +407,7 @@ export function DataTable({
     pageIndex: 0,
     pageSize: 10,
   })
+  const [isSearchOpen, setIsSearchOpen] = React.useState(false); // Added for search toggle
   const sortableId = React.useId()
   const sensors = useSensors(
     useSensor(MouseSensor, {}),
@@ -422,6 +424,7 @@ export function DataTable({
   }, [rowSelection]);
 
   const [loading, setLoading] = React.useState(true);
+  
 
   // Simulate data fetching
   React.useEffect(() => {
@@ -467,7 +470,7 @@ export function DataTable({
   return (
     <Tabs
       defaultValue="outline"
-      className="flex w-full flex-col justify-start gap-6"
+className="flex w-full flex-col justify-start gap-4 md:gap-6"
     >
 <div className="flex items-center justify-between px-4 lg:px-6 mt-4 md:mt-0">
   {/* Left Side: Mobile Select + Tabs for larger screens */}
@@ -555,7 +558,7 @@ export function DataTable({
       <DropdownMenuTrigger asChild>
         <Button variant="outline" className="flex items-center gap-2">
           <Globe className="w-4 h-4" />
-          <span className="hidden sm:inline">Choose Website</span>
+          <span className="hidden lg:inline">Choose Website</span>
           <ChevronDown className="w-4 h-4" />
         </Button>
       </DropdownMenuTrigger>
@@ -592,8 +595,34 @@ export function DataTable({
     {/* searchbar */}
    {/* Search Icon for ≤768px (md breakpoint) */}
 {/* Search Icon for <1024px */}
-<div className="flex lg:hidden items-center justify-center w-9 h-9 border border-gray-300 rounded-md cursor-pointer">
-  <Search className="w-4 h-4 text-gray-500" />
+<div className="flex lg:hidden items-center">
+  {isSearchOpen ? (
+    <div className="relative w-full max-w-xs">
+      <Input
+        type="search"
+        placeholder="Search for Title & Keywords..."
+        className="w-full text-sm px-4 py-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute right-2 top-1/2 -translate-y-1/2"
+        onClick={() => setIsSearchOpen(false)}
+      >
+        <X className="w-4 h-4 text-gray-500" />
+        <span className="sr-only">Close search</span>
+      </Button>
+    </div>
+  ) : (
+    <Button
+      variant="outline"
+      className="flex items-center justify-center w-9 h-9 border border-gray-300 rounded-md"
+      onClick={() => setIsSearchOpen(true)}
+    >
+      <Search className="w-4 h-4 text-gray-500" />
+      <span className="sr-only">Open search</span>
+    </Button>
+  )}
 </div>
 
 {/* Full Search Input for ≥1024px */}
