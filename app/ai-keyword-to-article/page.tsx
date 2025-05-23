@@ -1,3 +1,5 @@
+import { AiKeywordHeader } from "@/components/ai-keyword-header"
+import KeywordForm from "@/components/ai-keyword-search-form"
 import { AppSidebar } from "@/components/app-sidebar"
 import { CreateArticleForm } from "@/components/create-article-form"
 import { CreateArticleHeader } from "@/components/create-article-header"
@@ -9,10 +11,6 @@ import {
 
 
 export default function CreatedArticlePage() {
-//      const handleSubmit = (data: { title: string; content: string }) => {
-//     console.log("Article saved:", data);
-//   };
-
   
   return (
       <SidebarProvider
@@ -26,21 +24,9 @@ export default function CreatedArticlePage() {
       <AppSidebar variant="inset"/>
       <SidebarInset>
         <div>
-        <CreateArticleHeader />
-          {/* Two-column Grid: Form & Tabs */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 mt-2">
-            {/* Form Section */}
-            <div className="p-4 rounded-md shadow">
-              {/* <h2 className="text-lg font-semibold mb-4">Profile Form</h2> */}
-              <CreateArticleForm />
-            </div>
-
-            {/* Tabs Section */}
-            <div className="p-4 rounded-md shadow">
-              <h2 className="text-center">Article Title Suggestions based on keyword</h2>
-              <TabsDemo />
-            </div>
-          </div>
+        <AiKeywordHeader />
+        <KeywordForm />
+        
         </div>
       </SidebarInset>
     </SidebarProvider>

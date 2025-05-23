@@ -1,5 +1,6 @@
 "use client";
 
+// import Link from "next/link";
 import * as React from "react";
 import "../app/globals.css";
 import {
@@ -42,6 +43,7 @@ import darkLogo from "./img/abun dark mode logo.svg";
 // import { ScrollArea } from "./ui/scroll-area";
 import { useTheme } from "next-themes";
 
+
 const data = {
   user: {
     name: "Profile",
@@ -78,8 +80,8 @@ const data = {
     icon: FileText,
     isActive: true,
     items: [
-      { title: "Create Article", url: "#" },
-      { title: "Generated Articles", url: "#",isActive: true },
+      { title: "Create Article", url: "/created-article" },
+      { title: "Generated Articles", url: "/generated-article",isActive: true },
       { title: "Keyword Projects", url: "#" },
       { title: "AI Keyword to Article", url: "#" },
       { title: "Steal Competitor Keyword", url: "#" },

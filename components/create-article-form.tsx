@@ -88,7 +88,7 @@ export function CreateArticleForm() {
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select" />
+                    <SelectValue placeholder="Select..." />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
