@@ -1,9 +1,7 @@
 import { AiKeywordHeader } from "@/components/ai-keyword-header"
 import KeywordForm from "@/components/ai-keyword-search-form"
 import { AppSidebar } from "@/components/app-sidebar"
-import { CreateArticleForm } from "@/components/create-article-form"
-import { CreateArticleHeader } from "@/components/create-article-header"
-import { TabsDemo } from "@/components/create-article-suggestion"
+
 import {
   SidebarInset,
   SidebarProvider,
