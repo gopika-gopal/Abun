@@ -13,10 +13,10 @@ import {
 export default function KeywordResearchUI() {
   return (
     <div className="flex flex-col items-center justify-center px-4 py-10 text-center mt-15">
-      <h2>
+      <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
         Enter a Keyword to <br /> Find Relevant Keywords in the Niche
       </h2>
-      <p className="text-muted-foreground mt-2">
+      <p className="leading-7 [&:not(:first-child)]:mt-6">
         Add a keyword for your site that you want to rank for:
       </p>
 
