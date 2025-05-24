@@ -25,16 +25,12 @@ export function ModeToggle() {
   return (
     <Button
       variant="outline"
-      // size="icon"
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >
       {isDark ? (
         <Sun className="h-5 w-5" />
-        // <Image src={darkLogo} alt="Logo" width={30} height={40} />
       ) : (
         <Moon className="h-5 w-5" />
-        // <Image src={lightLogo} alt="Logo" width={30} height={40} />
-
       )}
       <span className="sr-only">
         {isDark ? "Switch to Light Theme" : "Switch to Dark Theme"}

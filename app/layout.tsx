@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Manrope } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
-// import { ScrollArea } from "@/components/ui/scroll-area";
 
 const geist = Geist({
   weight: ["400", "700"],
@@ -32,9 +31,7 @@ export default function RootLayout({
     <html lang="en" className={`${geist.variable} ${manrope.variable}`}>
       <body className="font-geist antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {/* <ScrollArea className="h-screen w-full"> */}
-            {children}
-          {/* </ScrollArea> */}
+          {children}
         </ThemeProvider>
       </body>
     </html>

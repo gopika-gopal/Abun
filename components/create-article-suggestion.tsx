@@ -85,6 +85,7 @@ export function TabsDemo() {
                             {data.map(article => (
                                 <li key={article.id} className="hover:underline cursor-pointer" onClick={() => getArticleTitle(article.title)}>
                                     {article.title}
+                                    
                                 </li>
                             ))}
                         </ul>

@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Check, ChevronsUpDown, RefreshCw, Save } from "lucide-react";
+import { Bookmark, Check, ChevronsUpDown, Save } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -33,8 +33,31 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import {
+    Select,
+    SelectTrigger,
+    SelectContent,
+    SelectItem,
+} from "@/components/ui/select";
+import {
+    Dialog,
+    DialogTrigger,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogClose,
+} from "@/components/ui/dialog";
+import {
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
+} from "@/components/ui/tabs";
+import { Label } from "recharts";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card";
 
-// Zod schema
+
+
 const formSchema = z.object({
     keyword: z.string().min(1, { message: "Keyword is required." }),
     title: z.string().min(1, { message: "Title is required." }),
@@ -42,15 +65,14 @@ const formSchema = z.object({
     instructions: z.string().optional(),
 });
 
-// Infer type
 type ArticleFormValues = z.infer<typeof formSchema>;
 
 const languages = [
     { value: "english", label: "English" },
     { value: "hindi", label: "Hindi" },
     { value: "spanish", label: "Spanish" },
-    { value: "spanish", label: "Malayalam" },
-    { value: "spanish", label: "Chinese" },
+    { value: "malayalam", label: "Malayalam" },
+    { value: "chinese", label: "Chinese" },
 ];
 
 export function CreateArticleForm() {
@@ -73,7 +95,7 @@ export function CreateArticleForm() {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                {/* Keyword */}
+                {/* keyword */}
                 <FormField
                     control={form.control}
                     name="keyword"
@@ -88,7 +110,7 @@ export function CreateArticleForm() {
                     )}
                 />
 
-                {/* Article Title */}
+                {/* article title */}
                 <FormField
                     control={form.control}
                     name="title"
@@ -166,30 +188,22 @@ export function CreateArticleForm() {
                     name="instructions"
                     render={({ field }) => (
                         <FormItem>
-                            {/* FormLabel with Load & Save icons on the right */}
                             <div className="flex items-center justify-between">
                                 <FormLabel>Instructions & Context (Optional)</FormLabel>
-
                                 <div className="flex items-center gap-2">
-                                    {/* Load Select */}
-                                    {/* <Select>
-                                        <SelectTrigger className="h-8 px-2 text-sm w-[100px] flex items-center gap-2">
-                                            <Download className="w-4 h-4 text-muted-foreground" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="template1">Template 1</SelectItem>
-                                            <SelectItem value="template2">Template 2</SelectItem>
-                                            <SelectItem value="template3">Template 3</SelectItem>
-                                        </SelectContent>
-                                    </Select> */}
-                                     <button type="button" className="p-1.5 rounded-md hover:bg-muted">
-                                        <RefreshCw className="w-4 h-4 text-muted-foreground" />
-                                    </button>
-
-                                    {/* Save Icon Button */}
                                     <button type="button" className="p-1.5 rounded-md hover:bg-muted">
                                         <Save className="w-4 h-4 text-muted-foreground" />
                                     </button>
+                                    <Select>
+                                        <SelectTrigger className="h-8 px-2 text-sm  flex items-center gap-2">
+                                            <Bookmark />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="template1">Item 1</SelectItem>
+                                            <SelectItem value="template2">Item 2</SelectItem>
+                                            <SelectItem value="template3">Item 3</SelectItem>
+                                        </SelectContent>
+                                    </Select>
                                 </div>
                             </div>
 
@@ -207,7 +221,44 @@ export function CreateArticleForm() {
 
                 {/* Buttons */}
                 <div className="flex items-center gap-4">
-                    <Button type="button" variant="outline">Advanced</Button>
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Button type="button" variant="outline">Advanced</Button>
+                        </DialogTrigger>
+                        <DialogContent >
+                            <Tabs defaultValue="account">
+                                <TabsList className="grid w-full grid-cols-2">
+                                    <TabsTrigger value="account">Article Settings</TabsTrigger>
+                                    <TabsTrigger value="password">Images</TabsTrigger>
+                                </TabsList>
+                                <TabsContent value="account">
+                                    <Card>
+                                        <CardHeader>
+                                            {/* <CardTitle>Images</CardTitle> */}
+
+                                        </CardHeader>
+
+                                        <CardFooter>
+                                            {/* <Button>Save changes</Button> */}
+                                        </CardFooter>
+                                    </Card>
+                                </TabsContent>
+                                <TabsContent value="password">
+                                    <Card>
+                                        <CardHeader>
+                                            {/* <CardTitle>Images</CardTitle> */}
+
+                                        </CardHeader>
+
+                                        <CardFooter>
+                                            {/* <Button>Save password</Button> */}
+                                        </CardFooter>
+                                    </Card>
+                                </TabsContent>
+                            </Tabs>
+                        </DialogContent>
+                    </Dialog>
+
                     <Button type="submit">Generate Article</Button>
                 </div>
             </form>

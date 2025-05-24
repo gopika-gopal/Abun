@@ -9,7 +9,6 @@ import data from "./dashboard/data.json"
 
 export default function Page() {
   return (
-    //  <ScrollArea className="h-screen w-full"> 
     <SidebarProvider>
       <AppSidebar variant="inset" />
       <SidebarInset>
@@ -28,7 +27,5 @@ export default function Page() {
         </div>
       </SidebarInset>
     </SidebarProvider>
-    // </ScrollArea> 
-
   )
 }
