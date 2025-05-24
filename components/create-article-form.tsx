@@ -43,9 +43,7 @@ import {
     Dialog,
     DialogTrigger,
     DialogContent,
-    DialogHeader,
-    DialogTitle,
-    DialogClose,
+  
 } from "@/components/ui/dialog";
 import {
     Tabs,
@@ -53,8 +51,7 @@ import {
     TabsTrigger,
     TabsContent,
 } from "@/components/ui/tabs";
-import { Label } from "recharts";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card";
+import { Card, CardHeader, CardFooter } from "./ui/card";
 
 
 
