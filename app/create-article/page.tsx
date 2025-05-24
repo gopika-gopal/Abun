@@ -1,3 +1,5 @@
+"use client"
+
 import { AppSidebar } from "@/components/app-sidebar"
 import { CreateArticleForm } from "@/components/create-article-form"
 import { CreateArticleHeader } from "@/components/create-article-header"
@@ -7,9 +9,16 @@ import {
     SidebarProvider,
 } from "@/components/ui/sidebar"
 import { CheckCircle } from "lucide-react"
+import { useState } from "react"
 
 
 export default function CreatedArticlePage() {
+
+    const [selectedTitle, setSelectedTitle] = useState('');
+
+    const handleTitleSelect = (title: string) => {
+        setSelectedTitle(title);
+    };
     return (
         <SidebarProvider
             style={
@@ -49,13 +58,15 @@ export default function CreatedArticlePage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 mt-2">
                         {/* Form Section */}
                         <div className="p-4 rounded-md shadow">
-                            <CreateArticleForm />
+                            {/* <CreateArticleForm /> */}
+                            <CreateArticleForm selectedTitle={selectedTitle} />
                         </div>
 
                         {/* Tabs Section */}
                         <div className="p-4 rounded-md shadow bg-[var(--base-100)] dark:bg-transparent">
                             <h2 className="text-center mt-3">Article Title Suggestions based on keyword</h2>
-                            <TabsDemo />
+                            {/* <TabsDemo /> */}
+                            <TabsDemo onTitleSelect={handleTitleSelect} />
                         </div>
                     </div>
                 </div>

@@ -32,11 +32,14 @@ const serpData = [
     { id: 4, title: "Proven Strategies for Title Tag Optimization" },
     { id: 5, title: "Boost Your Visibility with Keyword-Rich Titles" },
 ];
-
-export function TabsDemo() {
+interface TabsDemoProps {
+  onTitleSelect: (title: string) => void;
+}
+export function TabsDemo({ onTitleSelect }: TabsDemoProps) {
 
     const getArticleTitle = (title: string) => {
         console.log(`Clicked ${title}`);
+        onTitleSelect(title);
     };
 
     return (

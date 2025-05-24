@@ -78,10 +78,10 @@ const data = {
       icon: FileText,
       isActive: true,
       items: [
-        { title: "Create Article", url: "/created-article" },
-        { title: "Generated Articles", url: "/generated-article", isActive: true },
+        { title: "Create Article", url: "/create-article" },
+        { title: "Generated Articles", url: "/dashboard" },
         { title: "Keyword Projects", url: "#" },
-        { title: "AI Keyword to Article", url: "#" },
+        { title: "AI Keyword to Article", url: "/ai-keyword-to-article" },
         { title: "Steal Competitor Keyword", url: "#" },
         { title: "Import Keyword from GSC", url: "#" },
         { title: "Manual Keyword to Article", url: "#" },

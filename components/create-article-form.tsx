@@ -71,8 +71,10 @@ const languages = [
     { value: "malayalam", label: "Malayalam" },
     { value: "chinese", label: "Chinese" },
 ];
-
-export function CreateArticleForm() {
+interface CreateArticleFormProps {
+  selectedTitle: string;
+}
+export function CreateArticleForm({ selectedTitle }: CreateArticleFormProps) {
     const form = useForm<ArticleFormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -84,6 +86,11 @@ export function CreateArticleForm() {
     });
 
     const [languageOpen, setLanguageOpen] = React.useState(false);
+    React.useEffect(() => {
+        if (selectedTitle) {
+            form.setValue('title', selectedTitle);
+        }
+    }, [selectedTitle, form]);
 
     function onSubmit(values: ArticleFormValues) {
         console.log("Article Data:", values);
